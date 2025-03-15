@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Gift Card Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #card {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Roblox Gift Card Generator</h1>
+    <button onclick="generateCode()">Generate Code</button>
+    <div id="card"></div>
+
+    <script>
+        function generateCode() {
+            fetch('/generate_code')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('card').innerHTML = 'Code: ' + data.code;
+                });
+        }
+    </script>
+</body>
+</html>
